@@ -3,7 +3,7 @@
     "OpenRouterClient.Net9": {
       "commandName": "Project",
       "environmentVariables": {
-        "OPENROUTER_API_KEY": "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"
+        "OPENROUTER_API_KEY": ""
       }
     }
   }
