@@ -32,11 +32,10 @@ try
         "deepseek/deepseek-chat:free", // Идентификатор модели
         "Привет! Расскажи о C# в двух предложениях."); // Текст запроса
 
-    // Выводим полученный ответ
-    //Console.WriteLine($"\nResponse: {response.Choices[0].Message.Content}");
-    if (response.Choices.Length > 0 && !string.IsNullOrWhiteSpace(response.Choices[0].Message.Content))
+     //Выводим полученный ответ
+    if (response.ChatCompletionChoice.Count() > 0 && !string.IsNullOrWhiteSpace(response.ChatCompletionChoice[0].GeneratedMessage.Content))
     {
-        Console.WriteLine($"\nОтвет модели: {response.Choices[0].Message.Content}");
+        Console.WriteLine($"\nОтвет модели: {response.ChatCompletionChoice[0].GeneratedMessage.Content}");
     }
     else
     {
@@ -45,7 +44,9 @@ try
 
 
     // Выводим информацию об использовании токенов
-    Console.WriteLine($"\nИспользовано токенов: \nОбщее: {response.Usage.TotalTokens}, \nPrompt: {response.Usage.PromptTokens}, \nCompletion: {response.Usage.CompletionTokens}");
+    Console.WriteLine($"\nИспользовано токенов: \nОбщее: {response.UsageTokens.TotalTokens},\n" +
+                      $"Prompt: {response.UsageTokens.PromptTokens},\n" +
+                      $"Completion: {response.UsageTokens.CompletionTokens}");
 }
 catch (Exception ex)
 {
