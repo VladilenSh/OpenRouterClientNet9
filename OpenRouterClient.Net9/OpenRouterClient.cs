@@ -84,7 +84,7 @@ namespace OpenRouterClientNet9
             CancellationToken ct = default)
         {
             // Создание запроса с указанными параметрами
-            var request = new ChatRequest(model, [new Message("user", prompt)], temperature, maxTokens);
+            var request = new ChatRequest(model, [new GeneratedMessage("user", prompt)], temperature, maxTokens);
 
             // Отправка POST-запроса к API
             using var response = await _httpClient.PostAsJsonAsync(

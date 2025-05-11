@@ -363,3 +363,4 @@ MigrationBackup/
 FodyWeavers.xsd
 
 Properties/launchSettings.json
+/OpenRouterClient.Net9/Properties/launchSettings.json
